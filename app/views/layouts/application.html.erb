@@ -11,6 +11,14 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class='container'>
+      <div class="col-lg-10 mx-auto">
+        <%= render 'shared/header' %>
+      </div>
+      <%= yield %>
+      <div class="col-lg-10 mx-auto">
+        <%= render 'shared/footer' %>
+      </div>
+    </div>
   </body>
 </html>

@@ -71,3 +71,7 @@ group :test do
 
 end
 gem 'cssbundling-rails'
+gem 'faker'
+gem 'ransack'
+gem 'devise'
+gem 'kaminari'
