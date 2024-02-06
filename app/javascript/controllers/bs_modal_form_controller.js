@@ -1,13 +1,12 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="edit-user-description"
+// Connects to data-controller="bs-modal-form"
 export default class extends Controller {
   connect() {
-    console.log('I am connected');
   }
 
   initialize() {
-    this.element.setAttribute('data-action', 'click->edit-user-description#showModel')
+    this.element.setAttribute('data-action', 'click->bs-modal-form#showModel')
   };
 
   showModel(event) {
