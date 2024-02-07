@@ -5,18 +5,37 @@
     </div>
     <div class="col-lg-8">
       <div class="card-body">
-        <h3 class="fw-bold"><%= user.name %></h3>
-        <p class="lead"><%= user.profile_title %></p>
-        <p class="lead text-primary"><%= user.address %></p>
-        <% if user_signed_in? && @user == current_user %>
-          <div class="col-lg-6">
-            <div class="d-flex justify-content-end">
-              <%= link_to edit_member_personal_details_path, data: {controller:"bs-modal-form"} do %>
-                <i class="bi bi-pencil-fill"></i>
-              <% end %>
+        <div class="row">
+          <div class="col-lg-10">
+            <div class="d-flex justify-content-start">
+              <h3 class="fw-bold"><%= user.name %></h3>
             </div>
           </div>
-        <% end %>
+          <% if user_signed_in? && @user == current_user %>
+            <div class="col-lg-2">
+              <div class="d-flex justify-content-end">
+                <%= link_to edit_member_personal_details_path, data: {controller:"bs-modal-form"} do %>
+                  <i class="bi bi-pencil-fill"></i>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <p class="lead"><%= user.profile_title %></p>
+        <p class="lead text-primary"><%= user.address %></p>
+        <div id='user-connection-status'>
+          <% if user_signed_in? && current_user != user %>
+            <% if current_user.check_if_already_connected?(current_user, user) %>
+              <%= link_to "Connect", connections_path, class: "btn btn-primary", data: { controller: "connections", turbo_method: :post, connections_target: "connection", requester_id: current_user.id, connected_id: user.id } %>
+            <% elsif get_connection_status(current_user, user) == "pending" %>
+              <%= render "connections/create", connector: user %>
+            <% elsif get_connection_status(current_user, user) == "accepted" %>
+              <button type='button' class='btn btn-success'>Connected</button>
+            <% elsif get_connection_status(current_user, user) == "rejected" %>
+              <button type='button' class='btn btn-danger'>Rejected</button>
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
