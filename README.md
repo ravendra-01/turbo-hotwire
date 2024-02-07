@@ -5,3 +5,5 @@
 # Install Devise:
     run 'rails g devise:install'
     run 'rails g devise user first_name last_name date_of_birth:date username city state country pincode street_address profile_title about:text'
+
+To generated kaminari view pages: run 'rails g kaminari:views bootstrap4'
