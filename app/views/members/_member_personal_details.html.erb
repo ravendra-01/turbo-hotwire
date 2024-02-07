@@ -38,7 +38,7 @@
         </div>
         <% if @connections.present? %>
           <div id="connection-count">
-            <%= link_to pluralize(@connections.count, 'connection'), "#" %>
+            <%= link_to pluralize(@connections.count, 'connection'), member_connections_path(user)%>
           </div>
         <% end %>
       </div>
