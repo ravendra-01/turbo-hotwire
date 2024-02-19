@@ -44,6 +44,6 @@ And now you can visit the site with the URL http://localhost:3000
 
 #### Features
 
-- Implemented authentication using devise
-- Used Bootstrap for styling
-- Used Turbo Stream and Stimulus Controller
+- Implemented authentication using devise.
+- Used Bootstrap for styling.
+- Used Turbo Stream and Stimulus Controller.
