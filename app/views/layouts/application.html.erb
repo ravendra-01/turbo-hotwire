@@ -11,15 +11,19 @@
   </head>
 
   <body>
-    <div class='container'>
+    <div class="container-fluid">
       <div class='row'>
-        <div class="col-lg-10 mx-auto">
-          <%= render 'shared/header' %>
-        </div>
-        <%= yield %>
-        <%= turbo_frame_tag 'remote_modal' %>
-        <div class="col-lg-10 mx-auto">
-          <%= render 'shared/footer' %>
+        <div class="col-lg-8 mx-auto">
+          <div class="card">
+            <div class="card-header">
+              <%= render 'shared/header' %>
+            </div>
+            <div class="card-body">
+              <%= yield %>
+              <%= turbo_frame_tag 'remote_modal' %>
+              <%= render 'shared/footer' %>
+            </div>
+          </div>
         </div>
       </div>
     </div>
