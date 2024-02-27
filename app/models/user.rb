@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, :email, :username, :profile_title, presence: true
   validates :username, presence: true, uniqueness: true
+  has_many :posts
   
   PROFILE_TITLE = [
     'Senior Ruby on Rails Developer',
