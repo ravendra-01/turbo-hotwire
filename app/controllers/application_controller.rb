@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
           render turbo_stream: turbo_stream.replace(target, partial: partial, locals: locals)
         when 'append'
           render turbo_stream: turbo_stream.append(target, partial: partial, locals: locals)
+        when 'prepend'
+          render turbo_stream: turbo_stream.prepend(target, partial: partial, locals: locals)
         when 'remove'
           render turbo_stream: turbo_stream.remove(target)
         end
