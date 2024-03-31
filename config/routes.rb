@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   patch 'update_personal_details', to: 'members#update_personal_details', as: 'update_member_personal_details'
   get 'member-connections/:id', to: 'members#connections', as: 'member_connections'
   get 'home/index', to: 'home#index', as: 'search_professionals'
+  post 'post/like', to: 'likes#like'
+  post 'post/dislike', to: 'likes#dislike'
   resources :work_experiences
   resources :connections
   resources :posts
